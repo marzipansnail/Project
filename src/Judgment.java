@@ -24,8 +24,9 @@ public class Judgment {
     public String judgmentDate;
 
 
-    public CourtType type(){
-        return courtType;
+
+    public String toString(){
+        return this.id + " " + courtType.toString();
     }
 
 
