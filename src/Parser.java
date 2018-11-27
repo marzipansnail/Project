@@ -7,15 +7,19 @@ import java.nio.file.DirectoryIteratorException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Parser {
 
+    public List<Judgment> judgments = new ArrayList<>();
 
-    public Judgment parse(Path dir){
+
+    public List<Judgment> parse(Path dir){
 
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
             for (Path file: stream) {
-
+//for item in items albo coś w tym stylu
                 Gson gson = new Gson();
 
                 String name = file.getParent().toString();
@@ -23,8 +27,9 @@ public class Parser {
 
                 try (Reader reader = new FileReader(name)) {
 
-                    Judgment judgment = gson.fromJson(reader, Judgment.class);
-                    return judgment;
+                    Items wydmuszka = gson.fromJson(reader, Items.class);
+                    List<Judgment> j = wydmuszka.items;
+                    judgments.addAll(j);
 
 
                 } catch (IOException e) {
@@ -40,7 +45,7 @@ public class Parser {
         }
 
 
-        return null;
+        return judgments;
 
     }
 

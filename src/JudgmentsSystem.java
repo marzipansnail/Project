@@ -6,7 +6,7 @@ public class JudgmentsSystem {
     protected List<Regulation> regulations;
 
     public String getRubrum(int id){
-        return judgments.get(id).toString();
+        return "a";
     }
 
 

@@ -26,7 +26,9 @@ public class Judgment {
 
 
     public String toString(){
-        return this.id + " " + courtType.toString();
+
+        return id + " " + courtType.toString();
+
     }
 
 
