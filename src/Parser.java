@@ -19,7 +19,6 @@ public class Parser {
 
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
             for (Path file: stream) {
-//for item in items albo coś w tym stylu
                 Gson gson = new Gson();
 
                 String name = file.getParent().toString();

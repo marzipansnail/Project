@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 public class Judgment {
@@ -25,9 +28,14 @@ public class Judgment {
 
 
 
-    public String toString(){
 
-        return id + " " + courtType.toString();
+    public String rubrum(){
+
+        String jud = new String();
+        for(Judge j : judges){
+            jud = jud + " " + j.getJudge();
+        }
+        return id +  " " + judgmentDate + " " + courtType.toString() + " " + jud;
 
     }
 
