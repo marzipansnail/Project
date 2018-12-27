@@ -32,12 +32,9 @@ public class Main {
         System.out.println("Wprowadź ścieżkę do folderu zawierającego pliki typu html");
         String line2 = lineReader.readLine(prompt);
 
-       // String line = "C:\\Users\\Zuzanna\\Desktop\\judgments-sample\\json";
+        // String line = "C:\\Users\\Zuzanna\\Desktop\\judgments-sample\\json";
+        // C:\\Users\\Zuzanna\\Desktop\\cbosa\\04\\07
         JudgmentsSystem j = new JudgmentsSystem(new JudgmentsParser().parse(line1,line2));
-        List<String> sig = new ArrayList<>();
-        sig.add("II AKa 42/14");
-
-
 
 
 
@@ -46,22 +43,30 @@ public class Main {
             line=lineReader.readLine(prompt);
             try {
 
+                String[] command = line.split("  ");
+                String method = command[0];
 
-                switch(line) {
+                switch(method) {
                     case "rubrum":
+                        int size = command.length;
+                        List<String> sig = new ArrayList<>();
+                        for(int i=1; i<size; i++) {
+                            sig.add(command[i]);
+                        }
                         System.out.println(j.getRubrum(sig));
+                        sig.clear();
                         break;
 
 
 
                     case "content":
-                        String i = "II AKa 42/14";
+                        String i = command[1];
                         System.out.println(j.getContent(i));
                         break;
 
 
                     case "judge":
-                        String name = "Edward Stelmasik";
+                        String name = command[1];
                         System.out.println(j.getJudge(name));
                         break;
 

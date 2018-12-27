@@ -16,13 +16,12 @@ public class Regulation {
         if (o == null || getClass() != o.getClass()) return false;
         Regulation that = (Regulation) o;
         return journalYear == that.journalYear &&
-                journalNo == that.journalNo &&
                 journalEntry == that.journalEntry;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(journalYear, journalNo, journalEntry);
+        return Objects.hash(journalYear, journalEntry);
     }
 
    public String getTitle(){

@@ -8,7 +8,6 @@ import static java.lang.Integer.parseInt;
 public class JudgmentsSystem {
 
     protected List<Judgment> judgments;
-    protected List<Regulation> regulations;
     protected Map<Judge, Integer> judgesNum = new HashMap<>();
     protected Map<Regulation, Integer> regulationsNum = new HashMap<>();
     protected Map<Integer, Integer> judgesNumber = new HashMap<>();
@@ -109,13 +108,13 @@ public class JudgmentsSystem {
 
         String result = " ";
 
-        int[] numbers = new int[5];
-        for (int i=0; i<5; i++) numbers[0]=0;
+        int[] numbers = new int[6];
+        for (int i=0; i<6; i++) numbers[0]=0;
         String[] courtTypes = {"Sąd Powszechny", "Sąd Najwyższy", "Sąd Administracyjny",
-                "Trybunał Konstytucyjny", "Krajowa Izba Odwoławcza"};
+                "Trybunał Konstytucyjny", "Krajowa Izba Odwoławcza", "Naczelny Sąd Administracyjny"};
 
         for( Judgment judgment : judgments){
-            for(int i=0; i<5; i++) {
+            for(int i=0; i<6; i++) {
                 if(judgment.courtType.toString().equals(courtTypes[i])){
                     numbers[i]++;
                     break;
@@ -123,7 +122,7 @@ public class JudgmentsSystem {
             }
         }
 
-        for(int i=0; i<5; i++){
+        for(int i=0; i<6; i++){
             result = result + "\n" + courtTypes[i] + " " + numbers[i];
         }
         return result;
@@ -196,7 +195,8 @@ public class JudgmentsSystem {
                         "    months - wyświetlenie liczby orzeczeń w poszczególnych miesiącach \n" +
                         "    courts - wyświetlenie liczby orzeczeń ze względu na typ sądu \n" +
                         "    regulations - wyświetlenie 10 najczęściej przywoływanych ustaw \n" +
-                        "    jury - wyświetlenie liczby spraw przypadających na określony skład sędziowski \n";
+                        "    jury - wyświetlenie liczby spraw przypadających na określony skład sędziowski \n" +
+                        " Nazwę metody oraz nazwy argumentów oddzielają dwie spacje! \n";
 
         return result;
     }

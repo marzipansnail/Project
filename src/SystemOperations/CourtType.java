@@ -6,7 +6,8 @@ enum CourtType {
     SUPREME,
     ADMINISTRATIVE,
     CONSTITUTIONAL_TRIBUNAL,
-    NATIONAL_APPEAL_CHAMBER;
+    NATIONAL_APPEAL_CHAMBER,
+    SUPREME_ADMINISTRATIVE;
 
 
     public String toString(){
@@ -25,6 +26,9 @@ enum CourtType {
 
             case NATIONAL_APPEAL_CHAMBER:
                 return "Krajowa Izba Odwoławcza";
+
+            case SUPREME_ADMINISTRATIVE:
+                return "Naczelny Sąd Administracyjny";
 
         }
         return "";

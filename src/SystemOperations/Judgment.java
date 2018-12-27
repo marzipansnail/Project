@@ -21,11 +21,22 @@ public class Judgment {
     private String meansOfAppeal;
     private String judgmentResult;
     private List<String> lowerCourtJudgments;
-    //personnelType
     private List<Opinion> dissentingOpinions;
     protected String judgmentDate;
 
 
+
+    Judgment(CourtType type, List<CourtCase> cases, List<Judge> judges, String content,
+             List<Regulation> regulations, String date ){
+
+        this.courtType = type;
+        this.courtCases = cases;
+        this.judges = judges;
+        this.textContent = content;
+        this.referencedRegulations = regulations;
+        this.judgmentDate = date;
+
+    }
 
 
     public String rubrum(){
