@@ -27,14 +27,14 @@ public class Main {
 
         String line = null;
 
-        System.out.println("Wprowadź ścieżkę do folderu zawierającego pliki typu .json:");
-        String line1 = lineReader.readLine(prompt);
-        System.out.println("Wprowadź ścieżkę do folderu zawierającego pliki typu html");
-        String line2 = lineReader.readLine(prompt);
+            System.out.println("Wprowadź ścieżkę do folderu zawierającego pliki typu .json:");
+            String line1 = lineReader.readLine(prompt);
+            System.out.println("Wprowadź ścieżkę do folderu zawierającego pliki typu html");
+            String line2 = lineReader.readLine(prompt);
 
-        // String line = "C:\\Users\\Zuzanna\\Desktop\\judgments-sample\\json";
-        // C:\\Users\\Zuzanna\\Desktop\\cbosa\\04\\07
-        JudgmentsSystem j = new JudgmentsSystem(new JudgmentsParser().parse(line1,line2));
+            // String line = "C:\\Users\\Zuzanna\\Desktop\\json";
+            // C:\\Users\\Zuzanna\\Desktop\\html
+            JudgmentsSystem j = new JudgmentsSystem(new JudgmentsParser().parse(line1, line2));
 
 
 

@@ -17,6 +17,7 @@ public class JudgmentsParser {
     public List<Judgment> parse(String dir1, String dir2) throws IOException {
 
         File jsonfiles = new File(dir1);
+
         File[] directoryListing = jsonfiles.listFiles();
 
         if (directoryListing != null) {
@@ -122,7 +123,8 @@ public class JudgmentsParser {
                         for(int j=1; j<regArray.length;j++){
 
                             Regulation r = new Regulation();
-                            r.journalYear = Integer.parseInt(regArray[j].split(" ")[0]);
+                            if(!regArray[j].split(" ")[0].contains("nr"))r.journalYear = Integer.parseInt(regArray[j].split(" ")[0]);
+                            else r.journalYear = -1;
                             String[] regs = regArray[j].split(" ");
 
                             for(int k=0; k<regs.length; k++){
@@ -130,7 +132,8 @@ public class JudgmentsParser {
                                     r.journalEntry = Integer.parseInt(regs[k + 1]);
                                 }
                             }
-                            r.journalTitle = regArray[j].split("r. ")[1];
+                            if( regArray[j].split("Ustawa").length>1)r.journalTitle = "Ustawa " + regArray[j].split("Ustawa")[1];
+                            else r.journalTitle = "nieokreślone";
                             regList.add(r);
                         }
 
